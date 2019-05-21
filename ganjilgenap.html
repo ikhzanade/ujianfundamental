@@ -1,0 +1,21 @@
+<script>
+    var lagi = true
+    function ganjiGenap(){
+        var angka = parseInt(prompt('Masukan Angka'))
+        if(angka % 2 == 0){
+            alert(angka + ' Adalah Bilangan Genap')
+        }else {
+            alert(angka + ' Adalah Bilangan Ganjil')
+        }
+        lagi = confirm('Mau Lagi')
+    }
+    function exit(){
+        lagi = false
+    }
+    var kumpulanFn = [ganjiGenap, exit]
+    do
+    {
+        var menu = prompt('Mau Ngapain ? \n 1. ganjil Genap , 2. Exit') //1
+        kumpulanFn[menu-1]()
+    }while(lagi)
+</script>

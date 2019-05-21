@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Challenge Array</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <center>
+            <table id="table">
+
+            </table>
+            <form>
+                <br><br>
+                <input type="number" placeholder="Masukan Angka" id="jumlah">
+                <br><br>
+                <input type="button" value="Kiri" onclick="putarArrayKiri()">
+                <input type="button" value="Kanan" onclick="putarArray()">
+            </form>
+
+        </center>
+    </div>
+
+
+    <script>
+        var arrSatu = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8, ],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+        var putarArray = () => {
+            var input = document.getElementById('jumlah').value;
+            var newArr = [
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
+            ]
+            if (input % 4 == 1) {
+                newArr[0][0] = arrSatu[3][0];
+                newArr[0][1] = arrSatu[2][0];
+                newArr[0][2] = arrSatu[1][0];
+                newArr[0][3] = arrSatu[0][0];
+                newArr[1][0] = arrSatu[3][1];
+                newArr[1][1] = arrSatu[2][1];
+                newArr[1][2] = arrSatu[1][1];
+                newArr[1][3] = arrSatu[0][1];
+                newArr[2][0] = arrSatu[3][2];
+                newArr[2][1] = arrSatu[2][2];
+                newArr[2][2] = arrSatu[1][2];
+                newArr[2][3] = arrSatu[0][2];
+                newArr[3][0] = arrSatu[3][3];
+                newArr[3][1] = arrSatu[2][3];
+                newArr[3][2] = arrSatu[1][3];
+                newArr[3][3] = arrSatu[0][3];
+                arrSatu = newArr;
+            } else if (input % 4 == 2) {
+                newArr[0][0] = arrSatu[3][3];
+                newArr[0][1] = arrSatu[3][2];
+                newArr[0][2] = arrSatu[3][1];
+                newArr[0][3] = arrSatu[3][0];
+                newArr[1][0] = arrSatu[2][3];
+                newArr[1][1] = arrSatu[2][2];
+                newArr[1][2] = arrSatu[2][1];
+                newArr[1][3] = arrSatu[2][0];
+                newArr[2][0] = arrSatu[1][3];
+                newArr[2][1] = arrSatu[1][2];
+                newArr[2][2] = arrSatu[1][1];
+                newArr[2][3] = arrSatu[1][0];
+                newArr[3][0] = arrSatu[0][3];
+                newArr[3][1] = arrSatu[0][2];
+                newArr[3][2] = arrSatu[0][1];
+                newArr[3][3] = arrSatu[0][0];
+                arrSatu = newArr;
+            } else if (input == 3 || input == 7 || input == 11) {
+                newArr[0][0] = arrSatu[0][3];
+                newArr[0][1] = arrSatu[1][3];
+                newArr[0][2] = arrSatu[2][3];
+                newArr[0][3] = arrSatu[3][3];
+                newArr[1][0] = arrSatu[0][2];
+                newArr[1][1] = arrSatu[1][2];
+                newArr[1][2] = arrSatu[2][2];
+                newArr[1][3] = arrSatu[3][2];
+                newArr[2][0] = arrSatu[0][1];
+                newArr[2][1] = arrSatu[1][1];
+                newArr[2][2] = arrSatu[2][1];
+                newArr[2][3] = arrSatu[3][1];
+                newArr[3][0] = arrSatu[0][0];
+                newArr[3][1] = arrSatu[1][0];
+                newArr[3][2] = arrSatu[2][0];
+                newArr[3][3] = arrSatu[3][0];
+                arrSatu = newArr;
+            }
+            munculin();
+        }
+        var putarArrayKiri = () => {
+            var input = document.getElementById('jumlah').value;
+            var newArr = [
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
+            ]
+            if (input == 3 || input == 7 || input == 11) {
+                for(var i = 0 ; i < arrSatu.length ;i ++){
+                    for(var j = 0 ; j < arrSatu.length ; j++){
+                        newArr[i][j] = arrSatu[3-j][i];
+                    }
+                }
+                // newArr[0][0] = arrSatu[3][0];
+                // newArr[0][1] = arrSatu[2][0];
+                // newArr[0][2] = arrSatu[1][0];
+                // newArr[0][3] = arrSatu[0][0];
+                // newArr[1][0] = arrSatu[3][1];
+                // newArr[1][1] = arrSatu[2][1];
+                // newArr[1][2] = arrSatu[1][1];
+                // newArr[1][3] = arrSatu[0][1];
+                // newArr[2][0] = arrSatu[3][2];
+                // newArr[2][1] = arrSatu[2][2];
+                // newArr[2][2] = arrSatu[1][2];
+                // newArr[2][3] = arrSatu[0][2];
+                // newArr[3][0] = arrSatu[3][3];
+                // newArr[3][1] = arrSatu[2][3];
+                // newArr[3][2] = arrSatu[1][3];
+                // newArr[3][3] = arrSatu[0][3];
+                arrSatu = newArr;
+            } else if (input == 2 || input == 6 || input == 10) {
+                for(var i = 0 ; i < arrSatu.length ; i++){
+                    for(var j = 0 ; j < arrSatu.length ; j++){
+                         newArr[i][j] = arrSatu[3-i][3-j];
+                    }
+                }
+                // newArr[0][0] = arrSatu[3][3];
+                // newArr[0][1] = arrSatu[3][2];
+                // newArr[0][2] = arrSatu[3][1];
+                // newArr[0][3] = arrSatu[3][0];
+                // newArr[1][0] = arrSatu[2][3];
+                // newArr[1][1] = arrSatu[2][2];
+                // newArr[1][2] = arrSatu[2][1];
+                // newArr[1][3] = arrSatu[2][0];
+                // newArr[2][0] = arrSatu[1][3];
+                // newArr[2][1] = arrSatu[1][2];
+                // newArr[2][2] = arrSatu[1][1];
+                // newArr[2][3] = arrSatu[1][0];
+                // newArr[3][0] = arrSatu[0][3];
+                // newArr[3][1] = arrSatu[0][2];
+                // newArr[3][2] = arrSatu[0][1];
+                // newArr[3][3] = arrSatu[0][0];
+                arrSatu = newArr;
+            } else if (input == 1 || input == 5 || input == 9) {
+                newArr[0][0] = arrSatu[0][3];
+                newArr[0][1] = arrSatu[1][3];
+                newArr[0][2] = arrSatu[2][3];
+                newArr[0][3] = arrSatu[3][3];
+                newArr[1][0] = arrSatu[0][2];
+                newArr[1][1] = arrSatu[1][2];
+                newArr[1][2] = arrSatu[2][2];
+                newArr[1][3] = arrSatu[3][2];
+                newArr[2][0] = arrSatu[0][1];
+                newArr[2][1] = arrSatu[1][1];
+                newArr[2][2] = arrSatu[2][1];
+                newArr[2][3] = arrSatu[3][1];
+                newArr[3][0] = arrSatu[0][0];
+                newArr[3][1] = arrSatu[1][0];
+                newArr[3][2] = arrSatu[2][0];
+                newArr[3][3] = arrSatu[3][0];
+                arrSatu = newArr;
+            }
+            munculin();
+        }
+        var test = () => {
+            var showResult = ``;
+            for(var i = 0; i < 5; i++){
+                showResult += `<tr>`;
+                    if(i<4){
+                        for(var j=0; j<4; j++){
+                            showResult += `<td>${arrSatu[i][j]}</td>`
+                        }
+                    }
+                    showResult += `</tr>`;
+            }
+            console.log(showResult);
+        }
+        var munculin = () => {
+            var output = ''
+                for(var i = 0 ; i< arrSatu.length; i++){
+                    output += '<tr>'
+                    for(var j = 0 ; j < arrSatu.length ; j++){
+                        output += `<td>${arrSatu[i][j]}</td>`
+                    }
+                    output +=  `<td><input type="button" value="sort" onclick="sortAtas${i}()"></td>`
+                    output += '</tr>'
+                }
+                output += `<tr>
+                        <td><input type="button" value="sort" onclick="sortBawah0()"></td>
+                        <td><input type="button" value="sort" onclick="sortBawah1()"></td>
+                        <td><input type="button" value="sort" onclick="sortBawah2()"></td>
+                        <td><input type="button" value="sort" onclick="sortBawah3()"></td>
+                        
+                    </tr>`
+            
+            //     var tampil = 
+            //         `
+            //             <tr>
+            //                 <td>${arrSatu[0][0]}</td>
+            //                 <td>${arrSatu[0][1]}</td>
+            //                 <td>${arrSatu[0][2]}</td>
+            //                 <td>${arrSatu[0][3]}</td>
+            //                 <td><input type="button" value="sort" onclick="sortAtas0()"></td>
+            //             </tr>
+            //             <tr>
+            //                 <td>${arrSatu[1][0]}</td>
+            //                 <td>${arrSatu[1][1]}</td>
+            //                 <td>${arrSatu[1][2]}</td>
+            //                 <td>${arrSatu[1][3]}</td>
+            //                 <td><input type="button" value="sort" onclick="sortAtas1()"></td>
+            //             </tr>
+            //             <tr>
+            //                 <td>${arrSatu[2][0]}</td>
+            //                 <td>${arrSatu[2][1]}</td>
+            //                 <td>${arrSatu[2][2]}</td>
+            //                 <td>${arrSatu[2][3]}</td>
+            //                 <td><input type="button" value="sort" onclick="sortAtas2()"></td>
+            //             </tr>
+            //             <tr>
+            //                 <td>${arrSatu[3][0]}</td>
+            //                 <td>${arrSatu[3][1]}</td>
+            //                 <td>${arrSatu[3][2]}</td>
+            //                 <td>${arrSatu[3][3]}</td>
+            //                 <td><input type="button" value="sort" onclick="sortAtas3()"></td>
+            //             </tr>
+            //             <tr>
+            //                 <td><input type="button" value="sort" onclick="sortBawah0()"></td>
+            //                 <td><input type="button" value="sort" onclick="sortBawah1()"></td>
+            //                 <td><input type="button" value="sort" onclick="sortBawah2()"></td>
+            //                 <td><input type="button" value="sort" onclick="sortBawah3()"></td>
+                            
+            //             </tr>
+            // `
+            document.getElementById('table').innerHTML = output
+        }
+        munculin();
+        /* ---------------- SORT VERTIKAL ---------------------------*/
+        // 
+        var bandingkan1 = (a, b) => {
+            return a - b
+        }
+        var bandingkan2 = (b, a) => {
+            return a - b
+        }
+        var kali = 2;
+        var sortAtas0 = () => {
+            if (kali % 2 == 0) {
+                arrSatu[0].sort(bandingkan1);
+            } else {
+                arrSatu[0].sort(bandingkan2);
+            }
+            kali++;
+            munculin();
+        }
+        var sortAtas1 = () => {
+            if (kali % 2 == 0) {
+                arrSatu[1].sort(bandingkan1);
+            } else {
+                arrSatu[1].sort(bandingkan2);
+            }
+            kali++;
+            munculin();
+        }
+        var sortAtas2 = () => {
+            if (kali % 2 == 0) {
+                arrSatu[2].sort(bandingkan1);
+            } else {
+                arrSatu[2].sort(bandingkan2);
+            }
+            kali++;
+            munculin();
+        }
+        var sortAtas3 = () => {
+            if (kali % 2 == 0) {
+                arrSatu[3].sort(bandingkan1);
+            } else {
+                arrSatu[3].sort(bandingkan2);
+            }
+            kali++;
+            munculin();
+        }
+        /* ---------------- SORT HORIZONTAL ---------------------------*/
+        var kaliBawah = 2;
+        var sortBawah0 = () => {
+            var arrNew = [];
+            arrNew.push(arrSatu[0][0]);
+            arrNew.push(arrSatu[1][0]);
+            arrNew.push(arrSatu[2][0]);
+            arrNew.push(arrSatu[3][0]);
+            if (kaliBawah % 2 == 0) {
+                arrNew.sort(bandingkan1);
+            } else {
+                arrNew.sort(bandingkan2);
+            }
+            arrSatu[0][0] = arrNew[0];
+            arrSatu[1][0] = arrNew[1];
+            arrSatu[2][0] = arrNew[2];
+            arrSatu[3][0] = arrNew[3];
+            kaliBawah++;
+            munculin();
+        }
+        var sortBawah1 = () => {
+            var arrNew = [];
+            arrNew.push(arrSatu[0][1]);
+            arrNew.push(arrSatu[1][1]);
+            arrNew.push(arrSatu[2][1]);
+            arrNew.push(arrSatu[3][1]);
+            if (kaliBawah % 2 == 0) {
+                arrNew.sort(bandingkan1);
+            } else {
+                arrNew.sort(bandingkan2);
+            }
+            arrSatu[0][1] = arrNew[0];
+            arrSatu[1][1] = arrNew[1];
+            arrSatu[2][1] = arrNew[2];
+            arrSatu[3][1] = arrNew[3];
+            kaliBawah++;
+            munculin();
+        }
+        var sortBawah2 = () => {
+            var arrNew = [];
+            arrNew.push(arrSatu[0][2]);  // arrNew = [3,7,11,15]
+            arrNew.push(arrSatu[1][2]);  // arrNew = [15,11,7,3]
+            arrNew.push(arrSatu[2][2]);
+            arrNew.push(arrSatu[3][2]);
+            if (kaliBawah % 2 == 0) {
+                arrNew.sort(bandingkan1);
+            } else {
+                arrNew.sort(bandingkan2);
+            }
+            arrSatu[0][2] = arrNew[0];
+            arrSatu[1][2] = arrNew[1];
+            arrSatu[2][2] = arrNew[2];
+            arrSatu[3][2] = arrNew[3];
+            kaliBawah++;
+            munculin();
+        }
+        var sortBawah3 = () => {
+            var arrNew = [];
+            arrNew.push(arrSatu[0][3]);
+            arrNew.push(arrSatu[1][3]);
+            arrNew.push(arrSatu[2][3]);
+            arrNew.push(arrSatu[3][3]);
+            if (kaliBawah % 2 == 0) {
+                arrNew.sort(bandingkan1);
+            } else {
+                arrNew.sort(bandingkan2);
+            }
+            arrSatu[0][3] = arrNew[0];
+            arrSatu[1][3] = arrNew[1];
+            arrSatu[2][3] = arrNew[2];
+            arrSatu[3][3] = arrNew[3];
+            kaliBawah++;
+            munculin();
+        }
+        var kali = 3
+        function sortAtas(){
+            if(kali % 2 == 0){
+                arrSatu[0].sort(function(a,b){
+                return a-b
+            })
+            }else{
+                arrSatu[0].sort(function(a,b){
+                return b-a
+            })
+            }
+            
+            kali ++
+            munculin()
+        }
+    </script>
+</body>
+
+</html>

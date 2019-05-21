@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Daftar Manusia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 20px;
+        }
+        .ukuran {
+            padding: 10px
+        }
+</style>
+</head>
+
+<body>
+    <center>
+        <h1>Daftar Manusia</h1>
+        <table>
+            <tr>
+                <td>
+                    <form id="form1">
+                        <input type="number" placeholder="Jenis Bangunan" class="ukuran" /> <br><br>
+                        <input type="number" placeholder="Ukuran" class="ukuran"/><br><br>
+                       
+                    </form>
+
+                    <button onclick="Lihat()"> Lihat </button><br><br>
+                    Sort Berdasarkan <br><br>
+                  
+
+                    <br />
+                    <br />
+
+                </td>
+            </tr>
+        </table>
+
+
+        <table id="tableData">
+
+        </table>
+    </center>
+    <script>
+        var arrGambar = [
+
+        ];
+        class dataUkuran {
+            constructor(jenisbangunan,Ukuran) {
+                this.jenisbangunan = jenisbangunan;
+                this.Ukuran = Ukuran;
+        
+            }
+        }
+        do{
+        var proteksi1 = true
+        while(proteksi1){
+            menu = prompt('Pilih Menu \n 1. Segitiga Siku Siku \n 2. Segitiga Sama Kaki')
+            if(menu == 1 || menu == 2){
+                proteksi1 = false
+            }else{
+                alert('Anda Salah Input')
+            }
+        }
+        if(menu == 1){
+        var proteksi2 = true
+        while(proteksi2){
+            var siku = prompt('1. Siku atas \n 2. Siku Bawah')
+            if(siku == 1 || siku == 2){
+                proteksi2 = false
+            }else{
+                alert('Anda Salah input')
+            }
+        }
+        if(siku == 1){
+            var proteksi3 = true
+            while(proteksi3){
+                var baris = prompt('Mau Berapa Baris?')
+                if(baris > 0 && baris < 11){
+                    proteksi3 = false
+                }else{
+                    alert('Hanya Boleh input 1 - 10')
+                }
+            }
+            var a = ''
+            for (i = 0 ; i < baris; i++){
+                for (j = baris ; j > i; j--){
+                    a += '*'
+                }
+                a += '\n'
+            }
+            alert(a)
+            menulagi = confirm('Kembali Kemenu Klik OK?')
+        }else if(siku == 2){
+            var proteksi4 = true
+            do{
+            var baris = prompt('Mau Berapa Baris?')
+            if(baris >=1 && baris <= 10){
+                proteksi4 = false
+            }else{
+                alert('Anda Salah input')
+            }
+            }while(proteksi4)
+            var b = ''
+            for (i = 0 ; i < baris; i++){
+                for(j = 0; j <= i; j ++){
+                    b += '*'
+                }
+                b += '\n'
+            }
+            alert(b)
+            menulagi = confirm('Kembali Kemenu Klik OK?')
+        }
+        }else if (menu == 2){
+            do{
+                var proteksi7 =true
+                var baris = parseInt(prompt('Mau Berapa Baris?'))
+                if (baris > 0 && baris <= 10){
+                    proteksi7 = false
+                }else{
+                    alert('Anda Salah Input')
+                }
+            }while(proteksi7)
+            var c = ''
+            for (i = 0 ; i < 5; i++){
+                for (j = i; j > 5 ; j--){
+                    c += ' '
+                }
+                for (k = 0 ; k <=i ; k++){
+                    c += '*'
+                }
+                for (l = 0; l <= i-1; l++){
+                    c += '*'
+                }
+                c += '\n'
+            }
+            alert(c)
+            menulagi = confirm('Kembali Kemenu Klik OK?')
+        
+        }
+    }while(menulagi)
+    </script>
+</body>
+
+</html>
